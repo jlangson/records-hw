@@ -28,8 +28,28 @@ public class RecordServiceTest {
                 "Francis White male indigo 09/19/20",
                 "Austin Simon female violet 05/30/22"
         };
+    }
+
+    @Test
+    public void createRecordFromCommaRow(){
 
     }
+
+    @Test
+    public void createRecordFromPipeRow(){
+
+    }
+
+    @Test
+    public void createRecordFromSpaceRow(){
+
+    }
+
+    @Test
+    public void createRecordFromBadDataShouldFail(){
+
+    }
+
 
 
 }
