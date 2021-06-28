@@ -1,6 +1,7 @@
 package com.jared.records.service;
 import com.jared.records.model.Record;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,10 @@ public class RecordService {
     }
 
     //turn all inputs into Record collection
+    public static List<Record> createAllRecordsFromFile(ArrayList<String>) throws IOException {
+
+    }
+
 
     //merge records
 
