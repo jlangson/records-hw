@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordService {
-    //turn record from file into a Record
+    //turn row into a Record
     public static Record rowToRecord(String row){
 
     }
 
-    //turn all inputs into Record collection
+    //turn all rows in a file into a Record collection
     public static List<Record> createAllRecordsFromFile(ArrayList<String> filePath) throws IOException {
 
     }
 
     //merge records
-    public static List<Record> mergeRecordLists(ArrayList<Record> listOfRecords){
+    public static List<Record> mergeTwoRecordLists(ArrayList<Record> recordsOne, ArrayList<Record> recordsTwo){
 
     }
 
@@ -48,6 +48,6 @@ public class RecordService {
 
     //output sorted by last name descending
     public static void printLastNameDescendingSort(){
-        
+
     }
 }
