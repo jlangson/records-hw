@@ -1,8 +1,14 @@
 package com.jared.records.service;
 import com.jared.records.model.Record;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecordService {
     //turn record from file into a Record
+    public static Record rowToRecord(String row){
+
+    }
 
     //turn all inputs into Record collection
 
