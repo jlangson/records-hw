@@ -12,10 +12,9 @@ public class RecordService {
     }
 
     //turn all inputs into Record collection
-    public static List<Record> createAllRecordsFromFile(ArrayList<String>) throws IOException {
+    public static List<Record> createAllRecordsFromFile(ArrayList<String> filePath) throws IOException {
 
     }
-
 
     //merge records
 
