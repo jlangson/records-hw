@@ -4,8 +4,11 @@ import com.jared.records.service.RecordService;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
 
 import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RecordServiceTest {
     //creates rows to represent data from a read file
@@ -30,7 +33,8 @@ public class RecordServiceTest {
     @Test
     public static void createRecordFromCommaRow(){
         Record record = RecordService.rowToRecord(commaRows[0]);
-        Record answer = new Record()
+        Record answer = new Record("Doyle", "Hector", "female", "blue", "02/08/1936");
+        assertEquals(record, answer);
     }
 
     @Test
