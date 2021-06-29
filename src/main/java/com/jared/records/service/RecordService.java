@@ -60,14 +60,7 @@ public class RecordService {
 
         return records;
     }
-
-    //merge records
-    public static ArrayList<Record> mergeTwoRecordLists(ArrayList<Record> recordsOne, ArrayList<Record> recordsTwo){
-        //filler so it compiles TODO write method
-        ArrayList<Record> records = new ArrayList<>();
-        return records;
-    }
-
+    
     //sort by gender
     public static ArrayList<Record> sortByGender(ArrayList<Record> records){
         //filler so it compiles TODO write method
