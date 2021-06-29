@@ -158,6 +158,27 @@ public class RecordServiceTest {
 
     }
 
+    @Test
+    public void sortRecordsByBirthDateAscending(){
+        ArrayList<Record> answers = new ArrayList<>();
+        ArrayList<Record> unsorted = new ArrayList<>();
+
+        //recordsOne to recordsFour are shared between tests, so there is no inherent ordering
+        //going 4 to 1 is a coincidence
+        answers.add(recordFour);
+        answers.add(recordThree);
+        answers.add(recordTwo);
+        answers.add(recordOne);
+
+        unsorted.add(recordTwo);
+        unsorted.add(recordOne);
+        unsorted.add(recordFour);
+        unsorted.add(recordThree);
+
+        ArrayList<Record> results = RecordService.sortByBirthDateAscending(unsorted);
+        assertEquals(answers,results);
+    }
+
 
 
 }
