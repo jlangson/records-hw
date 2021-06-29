@@ -48,17 +48,16 @@ public class RecordService {
     }
 
     //turn all rows in a file into a Record collection
-    public static ArrayList<Record> createAllRecordsFromFiles(String[] filePaths) throws IOException {
+    public static ArrayList<Record> createAllRecordsFromFile(String filePath) throws IOException {
         ArrayList<Record> records = new ArrayList<>();
-        for(int i=0; i < filePaths.length; i++){
-            Path path = Paths.get(filePaths[i]);
-            String entireFile = new String(Files.readAllBytes(path));
-            String[] rows = entireFile.split("\n"); //create rows on newlines
-            for(int j=0; j < rows.length; j++){
-                Record record = rowToRecord(rows[j]);
-                records.add(record);
-            }
+        Path path = Paths.get(filePath);
+        String entireFile = new String(Files.readAllBytes(path));
+        String[] rows = entireFile.split("\n"); //create rows on newlines
+        for(int i=0; i < rows.length; i++){
+            Record record = rowToRecord(rows[i]);
+            records.add(record);
         }
+
         return records;
     }
 
