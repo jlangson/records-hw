@@ -92,8 +92,11 @@ public class RecordService {
     }
 
     //output sorted by gender
-    public static void printGenderSort(){
-
+    public static void printGenderThenLastNameAscendingSort(ArrayList<Record> records){
+        for(int i=0; i < records.size(); i++){
+            Record record = records.get(i);
+            System.out.println(record.outputByGenderFirstThenLastName());
+        }
     }
 
     //output sorted by birth date, ascending
