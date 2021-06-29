@@ -48,7 +48,7 @@ public class RecordService {
     }
 
     //turn all rows in a file into a Record collection
-    public static ArrayList<Record> createAllRecordsFromFile(String[] filePaths) throws IOException {
+    public static ArrayList<Record> createAllRecordsFromFiles(String[] filePaths) throws IOException {
         ArrayList<Record> records = new ArrayList<>();
         for(int i=0; i < filePaths.length; i++){
             Path path = Paths.get(filePaths[i]);

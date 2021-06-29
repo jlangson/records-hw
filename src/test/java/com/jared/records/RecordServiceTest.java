@@ -71,7 +71,7 @@ public class RecordServiceTest {
                 "src/test/java/resources/data/pipes.csv",
                 "src/test/java/resources/data/spaces.csv"
         };
-        ArrayList<Record> records = RecordService.createAllRecordsFromFile(filePaths);
+        ArrayList<Record> records = RecordService.createAllRecordsFromFiles(filePaths);
         ArrayList<Record> answers = new ArrayList<>();
         answers.add(RecordService.rowToRecord("Doyle, Hector, female, blue, 02/08/1936"));
         answers.add(RecordService.rowToRecord("Peck | Germaine | female | indigo | 06/26/1990"));
