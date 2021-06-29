@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 @SpringBootApplication
 public class RecordsApplication {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		SpringApplication.run(RecordsApplication.class, args);
 	}
 
