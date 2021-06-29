@@ -45,6 +45,11 @@ public class RecordServiceTest {
             "src/test/java/resources/data/pipes.csv",
             "src/test/java/resources/data/spaces.csv"
     };
+    public static final Record recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
+    public static final Record recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
+    public static final Record recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
+    public static final Record recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
+    
 
     //following tests are for rowToRecord
     @Test
@@ -85,14 +90,16 @@ public class RecordServiceTest {
         assertEquals(answers, records);
     }
 
+    //only tests GenderSorter. Does not test sorting on last name also after gender.
+    @Test
+    public void sortRecordsByGender(){
+
+    }
+
     @Test
     public void sortRecordsByGenderThenLastNameAscending(){
         ArrayList<Record> answers = new ArrayList<>();
         ArrayList<Record> unsorted = new ArrayList<>();
-        Record recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
-        Record recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
-        Record recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
-        Record recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
 
         answers.add(recordOne);
         answers.add(recordTwo);
@@ -106,7 +113,8 @@ public class RecordServiceTest {
         unsorted.add(recordFour);
 
         ArrayList<Record> results = RecordService.sortByGenderThenLastNameAscending(unsorted);
-
+        System.out.println(answers);
+        System.out.println(results);
         assertEquals(answers, results);
 
     }
