@@ -39,12 +39,16 @@ public class RecordServiceTest {
 
     @Test
     public void createRecordFromPipeRow(){
-
+        Record record = RecordService.createRecordFromRowGivenDelimiter(pipeRows[0], "|" );
+        Record answer = new Record("Peck", "Germaine", "female", "indigo", "06/26/1990");
+        assertEquals(answer, record);
     }
 
     @Test
     public void createRecordFromSpaceRow(){
-
+        Record record = RecordService.createRecordFromRowGivenDelimiter(spaceRows[0], " ");
+        Record answer = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
+        assertEquals(answer, record);
     }
 
     @Test
