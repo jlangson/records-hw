@@ -30,9 +30,9 @@ public class RecordService {
         if(row.contains(",")){
             record = createRecordFromRowGivenDelimiter(row, ",");
         } else if (row.contains("|")){
-            record = createRecordFromRowGivenDelimiter(row, "|");
+            record = createRecordFromRowGivenDelimiter(row, "\\|");
         } else if (row.contains(" ")){
-            record = createRecordFromRowGivenDelimiter(row, " ");
+            record = createRecordFromRowGivenDelimiter(row, "\\s+");
         } else { //bad row if this happens
             //TODO what happens here? Log it?
 
