@@ -5,11 +5,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Record {
+    //default values to avoid null pointer errors in .equals()
     private String lastName="";
     private String firstName="";
     private String gender="";
     private String favoriteColor="";
-    private LocalDate dateOfBirth;
+    private LocalDate dateOfBirth=LocalDate.MIN;
     //date in records are given as MM/dd/yyyy. DateTimeFormatter is needed for LocalDate which defaults to YYYY-MM-DD
     private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
