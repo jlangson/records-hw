@@ -136,6 +136,28 @@ public class RecordServiceTest {
 
     }
 
+    @Test
+    public void sortRecordsByLastNameDescending(){
+        ArrayList<Record> answers = new ArrayList<>();
+        ArrayList<Record> unsorted = new ArrayList<>();
+
+        //recordsOne to recordsFour are shared between tests, so there is no inherent ordering
+        answers.add(recordTwo);
+        answers.add(recordFour);
+        answers.add(recordOne);
+        answers.add(recordThree);
+
+        unsorted.add(recordThree);
+        unsorted.add(recordTwo);
+        unsorted.add(recordFour);
+        unsorted.add(recordOne);
+
+        ArrayList<Record> results = RecordService.sortByLastNameDescending(unsorted);
+
+        assertEquals(answers, results);
+
+    }
+
 
 
 }
