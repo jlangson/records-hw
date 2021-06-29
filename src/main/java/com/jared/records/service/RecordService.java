@@ -13,9 +13,17 @@ public class RecordService {
     public static Record rowToRecord(String row){
         Record record = new Record();
 
-        if(row.contains("|")){
-
-        } else if (row.contains(",")){
+        if(row.contains(",")){
+            String[] fields = row.split(",");
+            for(int i=0; i < fields.length; i++){
+                fields[i] = fields[i].trim();
+            }
+            record.setLastName(fields[0]);
+            record.setFirstName(fields[1]);
+            record.setGender(fields[2]);
+            record.setFavoriteColor(fields[3]);
+            record.setDateOfBirth(fields[4]);
+        } else if (row.contains("|")){
 
         } else if (row.contains(" ")){
 
