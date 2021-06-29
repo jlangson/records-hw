@@ -2,6 +2,9 @@ package com.jared.records.service;
 import com.jared.records.model.Record;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,9 +48,17 @@ public class RecordService {
     }
 
     //turn all rows in a file into a Record collection
-    public static ArrayList<Record> createAllRecordsFromFile(String[] filePath) throws IOException {
-        //filler so it compiles TODO write method
+    public static ArrayList<Record> createAllRecordsFromFile(String[] filePaths) throws IOException {
         ArrayList<Record> records = new ArrayList<>();
+        for(int i=0; i < filePaths.length; i++){
+            Path path = Paths.get(filePaths[i]);
+            String entireFile = new String(Files.readAllBytes(path));
+            String[] rows = entireFile.split("\n"); //create rows on newlines
+            for(int j=0; j < rows.length; j++){
+                Record record = rowToRecord(rows[j]);
+                records.add(record);
+            }
+        }
         return records;
     }
 
