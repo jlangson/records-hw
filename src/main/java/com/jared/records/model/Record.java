@@ -1,5 +1,7 @@
 package com.jared.records.model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Record {
@@ -7,14 +9,16 @@ public class Record {
     private String firstName="";
     private String gender="";
     private String favoriteColor="";
-    private String dateOfBirth="";
+    private LocalDate dateOfBirth;
+    //date in records are given as MM/dd/yyyy. DateTimeFormatter is needed for LocalDate which defaults to YYYY-MM-DD
+    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     public Record(String lastName, String firstName, String gender, String favoriteColor, String dateOfBirth) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.gender = gender;
         this.favoriteColor = favoriteColor;
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateFormat);
     }
 
     public Record() {
@@ -52,12 +56,12 @@ public class Record {
         this.favoriteColor = favoriteColor;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth);
     }
 
     @Override
