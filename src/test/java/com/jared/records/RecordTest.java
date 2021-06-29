@@ -12,4 +12,10 @@ public class RecordTest {
         Record recordTwo = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
         assertEquals(recordOne, recordTwo);
     }
+
+    @Test
+    public void isRecordEqualToItself(){
+        Record recordOne = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
+        assertEquals(recordOne, recordOne);
+    }
 }
