@@ -45,35 +45,35 @@ public class RecordService {
     }
 
     //turn all rows in a file into a Record collection
-    public static List<Record> createAllRecordsFromFile(String[] filePath) throws IOException {
+    public static ArrayList<Record> createAllRecordsFromFile(String[] filePath) throws IOException {
         //filler so it compiles TODO write method
         ArrayList<Record> records = new ArrayList<>();
         return records;
     }
 
     //merge records
-    public static List<Record> mergeTwoRecordLists(ArrayList<Record> recordsOne, ArrayList<Record> recordsTwo){
+    public static ArrayList<Record> mergeTwoRecordLists(ArrayList<Record> recordsOne, ArrayList<Record> recordsTwo){
         //filler so it compiles TODO write method
         ArrayList<Record> records = new ArrayList<>();
         return records;
     }
 
     //sort by gender
-    public static List<Record> sortByGender(ArrayList<Record> records){
+    public static ArrayList<Record> sortByGender(ArrayList<Record> records){
         //filler so it compiles TODO write method
         ArrayList<Record> sortedRecords = new ArrayList<>();
         return records;
     }
 
     //sort by birth date, ascending
-    public static List<Record> sortByBirthDateAscending(ArrayList<Record> records){
+    public static ArrayList<Record> sortByBirthDateAscending(ArrayList<Record> records){
         //filler so it compiles TODO write method
         ArrayList<Record> sortedRecords = new ArrayList<>();
         return records;
     }
 
     //sort by last name, descending
-    public static List<Record> sortByLastNameDescending(ArrayList<Record> records){
+    public static ArrayList<Record> sortByLastNameDescending(ArrayList<Record> records){
         //filler so it compiles TODO write method
         ArrayList<Record> sortedRecords = new ArrayList<>();
         return records;
