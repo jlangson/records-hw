@@ -13,20 +13,32 @@ import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 public class RecordServiceTest {
+  static String[] commaRows;
+  static String[] pipeRows;
+  static String[] spaceRows;
+  static String[] filePaths;
+  static Record recordOne;
+  static Record recordTwo;
+  static Record recordThree;
+  static Record recordFour;
+
+@BeforeAll
+public static void setup(){
     //creates rows to represent data from a read file
     //files can be pipe, comma, or space separated
-   public static final String[] commaRows = new String[]{
+    commaRows = new String[]{
             "Doyle, Hector, female, blue, 02/08/1936",
             "English, Hamish, male, yellow, 01/11/2012",
             "Mejia, Rudyard, female, red, 01/10/1945"
    };
-   public static final String[] pipeRows = new String[]{
+    pipeRows = new String[]{
            "Peck | Germaine | female | indigo | 06/26/1990",
            "Mills | Hoyt | female | yellow | 09/08/1919",
            "Young | Karyn | female | indigo | 11/08/1997"
    } ;
-    public static final String[] spaceRows = new String[]{
+     spaceRows = new String[]{
             "Summers  Lane  female  indigo  07/14/1988",
             "Alston  Calista  male  violet  03/30/1985",
             "Rasmussen  William  male  indigo  12/04/1944"
@@ -42,16 +54,16 @@ public class RecordServiceTest {
 
     //Summers  Lane  female  indigo  07/14/1988
     //Summers2  Lane  female  indigo  07/14/1988
-    public static final String[] filePaths = new String[]{
+     filePaths = new String[]{
             "src/test/java/resources/data/commas.csv",
             "src/test/java/resources/data/pipes.csv",
             "src/test/java/resources/data/spaces.csv"
     };
-    public static final Record recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
-    public static final Record recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
-    public static final Record recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
-    public static final Record recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
-
+    recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
+    recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
+    recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
+    recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
+}
 
     //following tests are for rowToRecord
     @Test
