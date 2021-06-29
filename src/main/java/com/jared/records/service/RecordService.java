@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordService {
+    public static final String paths[] = new String[]{
+            "src/main/resources/data/pipes.csv",
+            "src/main/resources/data/spaces.csv",
+            "src/main/resources/data/commas.csv"};
 
     public static Record createRecordFromRowGivenDelimiter(String row, String delimiter){
         Record record = new Record();
