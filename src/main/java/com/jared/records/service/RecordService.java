@@ -7,6 +7,20 @@ import java.util.List;
 
 public class RecordService {
 
+    public static Record createRecordFromRowGivenDelimiter(String row, String delimiter){
+        Record record = new Record();
+        String[] fields = row.split(delimiter);
+        for(int i=0; i < fields.length; i++){
+            fields[i] = fields[i].trim();
+        }
+        record.setLastName(fields[0]);
+        record.setFirstName(fields[1]);
+        record.setGender(fields[2]);
+        record.setFavoriteColor(fields[3]);
+        record.setDateOfBirth(fields[4]);
+        return record;
+    }
+
     //turn row into a Record
     //rows will not contain delimiters of other types in the fields.
     //delimiters are "," "|" " "
@@ -14,19 +28,11 @@ public class RecordService {
         Record record = new Record();
 
         if(row.contains(",")){
-            String[] fields = row.split(",");
-            for(int i=0; i < fields.length; i++){
-                fields[i] = fields[i].trim();
-            }
-            record.setLastName(fields[0]);
-            record.setFirstName(fields[1]);
-            record.setGender(fields[2]);
-            record.setFavoriteColor(fields[3]);
-            record.setDateOfBirth(fields[4]);
+            record = createRecordFromRowGivenDelimiter(row, ",");
         } else if (row.contains("|")){
-
+            record = createRecordFromRowGivenDelimiter(row, "|");
         } else if (row.contains(" ")){
-
+            record = createRecordFromRowGivenDelimiter(row, " ");
         } else { //bad row if this happens
             //TODO what happens here? Log it?
 
