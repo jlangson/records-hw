@@ -64,6 +64,13 @@ public class Record {
         this.dateOfBirth = LocalDate.parse(dateOfBirth);
     }
 
+    public String formatDateOfBirth(){
+        String month = String.valueOf(dateOfBirth.getMonth());
+        String year = String.valueOf(dateOfBirth.getYear());
+        String day = String.valueOf(dateOfBirth.getDayOfMonth());
+        return month + "/"  + day + "/" + year;
+    }
+
     @Override
     public String toString() {
         return "Record{" +
