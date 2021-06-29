@@ -32,7 +32,7 @@ public class RecordServiceTest {
     //following tests are for rowToRecord
     @Test
     public void createRecordFromCommaRow(){
-        Record record = RecordService.rowToRecord(commaRows[0]);
+        Record record = RecordService.createRecordFromRowGivenDelimiter(commaRows[0],",");
         Record answer = new Record("Doyle", "Hector", "female", "blue", "02/08/1936");
         assertEquals(answer, record);
     }
