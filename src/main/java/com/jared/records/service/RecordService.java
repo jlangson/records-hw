@@ -109,7 +109,10 @@ public class RecordService {
     }
 
     //output sorted by last name descending
-    public static void printLastNameDescendingSort(){
-
+    public static void printLastNameDescendingSort(ArrayList<Record> records){
+        for(int i=0; i < records.size(); i++){
+            Record record = records.get(i);
+            System.out.println(record.outputByLastNameFirst());
+        }
     }
 }

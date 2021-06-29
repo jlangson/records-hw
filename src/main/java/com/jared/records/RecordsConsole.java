@@ -31,6 +31,6 @@ public class RecordsConsole {
 
         RecordService.printGenderThenLastNameAscendingSort(recordsSortedByGenderThenLastNameAscending);
         RecordService.printBirthDateAscendingSort(recordsSortedByBirthDateAscending);
-        
+        RecordService.printLastNameDescendingSort(recordsSortedByLastNameDescending);
     }
 }
