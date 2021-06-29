@@ -53,7 +53,9 @@ public class RecordServiceTest {
 
     @Test
     public void createRecordFromBadDataShouldFail(){
-
+        Record record = RecordService.rowToRecord("aldjq93487asdjalsdq3784sjda-add091jda-d1d");
+        Record answer = new Record();
+        assertEquals(answer, record);
     }
 
 
