@@ -66,5 +66,26 @@ public class Record {
                 '}';
     }
 
+    //equality is when every field is identical
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj){
+            return true;
+        }
+        if (obj  == null || obj.getClass() != this.getClass()){
+            return false;
+        }
+        Record record = (Record) obj;
+        return this.lastName.equals(record.getLastName()) &&
+                this.firstName.equals(record.getFirstName()) &&
+                this.gender.equals(record.getGender()) &&
+                this.favoriteColor.equals(record.getFavoriteColor()) &&
+                this.dateOfBirth.equals(record.getDateOfBirth());
+    }
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
 
 }
