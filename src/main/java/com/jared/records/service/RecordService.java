@@ -100,7 +100,11 @@ public class RecordService {
     }
 
     //output sorted by birth date, ascending
-    public static void printBirthDateAscendingSort(){
+    public static void printBirthDateAscendingSort(ArrayList<Record> records){
+        for(int i=0; i < records.size(); i++){
+            Record record = records.get(i);
+            System.out.println(record.outputByBirthDateFirst());
+        }
 
     }
 
