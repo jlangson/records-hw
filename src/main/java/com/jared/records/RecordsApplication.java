@@ -12,14 +12,6 @@ public class RecordsApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(RecordsApplication.class, args);
-
-		String pipes = new String(Files.readAllBytes(Paths.get("src/main/resources/data/pipes.csv")));
-		String spaces = new String(Files.readAllBytes(Paths.get("src/main/resources/data/spaces.csv")));
-		String commas = new String(Files.readAllBytes(Paths.get("src/main/resources/data/commas.csv")));
-
-		System.out.println(pipes);
-		System.out.println(commas);
-		System.out.println(spaces);
 	}
 
 }
