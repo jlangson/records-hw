@@ -62,7 +62,7 @@ public class RecordService {
     }
     
     //sort by gender
-    public static ArrayList<Record> sortByGender(ArrayList<Record> records){
+    public static ArrayList<Record> sortByGenderThenLastNameAscending(ArrayList<Record> records){
         //filler so it compiles TODO write method
         ArrayList<Record> sortedRecords = new ArrayList<>();
         return records;
