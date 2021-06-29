@@ -27,9 +27,10 @@ public class RecordsConsole {
         //keeps three sorted ArrayLists so program doesn't need to resort when a different output is called
         ArrayList<Record> recordsSortedByGenderThenLastNameAscending = RecordService.sortByGenderThenLastNameAscending(mainList);
         ArrayList<Record> recordsSortedByBirthDateAscending = RecordService.sortByBirthDateAscending(mainList);
-        ArrayList<Record> recordsSortedByLastNameAscending = RecordService.sortByLastNameDescending(mainList);
+        ArrayList<Record> recordsSortedByLastNameDescending = RecordService.sortByLastNameDescending(mainList);
 
         RecordService.printGenderThenLastNameAscendingSort(recordsSortedByGenderThenLastNameAscending);
         RecordService.printBirthDateAscendingSort(recordsSortedByBirthDateAscending);
+        
     }
 }
