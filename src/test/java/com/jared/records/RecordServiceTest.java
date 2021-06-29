@@ -60,7 +60,7 @@ public class RecordServiceTest {
     }
 
     @Test
-    public void readRecordsFromFile() throws IOException {
+    public void readRecordsFromFiles() throws IOException {
         //file contents are:
         //Doyle, Hector, female, blue, 02/08/1936
         //Doyle2, Hector, female, blue, 02/08/1936
