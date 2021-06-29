@@ -85,6 +85,32 @@ public class RecordServiceTest {
         assertEquals(answers, records);
     }
 
+    @Test
+    public void sortRecordsByGenderThenLastNameAscending(){
+        ArrayList<Record> answers = new ArrayList<>();
+        ArrayList<Record> unsorted = new ArrayList<>();
+        Record recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
+        Record recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
+        Record recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
+        Record recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
+
+        answers.add(recordOne);
+        answers.add(recordTwo);
+        answers.add(recordThree);
+        answers.add(recordFour);
+
+        //add records in unsorted order then call sort
+        unsorted.add(recordTwo);
+        unsorted.add(recordThree);
+        unsorted.add(recordOne);
+        unsorted.add(recordFour);
+
+        ArrayList<Record> results = RecordService.sortByGenderThenLastNameAscending(unsorted);
+
+        assertEquals(answers, results);
+
+    }
+
 
 
 }
