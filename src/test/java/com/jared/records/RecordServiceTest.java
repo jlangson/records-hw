@@ -5,7 +5,6 @@ import com.jared.records.service.RecordService;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class RecordServiceTest {
-  static String[] commaRows;
-  static String[] pipeRows;
-  static String[] spaceRows;
-  static String[] filePaths;
-  static Record recordOne;
-  static Record recordTwo;
-  static Record recordThree;
-  static Record recordFour;
+    static String[] commaRows;
+    static String[] pipeRows;
+    static String[] spaceRows;
+    static String[] filePaths;
+    static Record recordOne;
+    static Record recordTwo;
+    static Record recordThree;
+    static Record recordFour;
 
     @BeforeAll
     public static void setup(){
@@ -65,7 +64,7 @@ public class RecordServiceTest {
         recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
     }
 
-    //following tests are for rowToRecord
+    //following 4 tests are for rowToRecord
 
     @Test
     public void testCreateRecordFromCommaRow(){
@@ -117,12 +116,10 @@ public class RecordServiceTest {
 
         results.add(recordThree);
         results.add(recordOne);
-//
-//        System.out.println("answers\n"+answers+"\n===\n");
-//        System.out.println("unsorted\n" + results + "\n==\n");
+
 
         Collections.sort(results, new GenderSorter());
-//        System.out.println("sorted\n" + results +"\n==\n");
+
 
         assertEquals(answers, results);
     }
@@ -144,8 +141,6 @@ public class RecordServiceTest {
         unsorted.add(recordFour);
 
         ArrayList<Record> results = RecordService.sortByGenderThenLastNameAscending(unsorted);
-//        System.out.println(answers);
-//        System.out.println(results);
         assertEquals(answers, results);
 
     }
@@ -192,7 +187,4 @@ public class RecordServiceTest {
         ArrayList<Record> results = RecordService.sortByBirthDateAscending(unsorted);
         assertEquals(answers,results);
     }
-
-
-
 }
