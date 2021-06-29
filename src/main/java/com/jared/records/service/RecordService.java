@@ -45,7 +45,7 @@ public class RecordService {
     }
 
     //turn all rows in a file into a Record collection
-    public static List<Record> createAllRecordsFromFile(ArrayList<String> filePath) throws IOException {
+    public static List<Record> createAllRecordsFromFile(String[] filePath) throws IOException {
         //filler so it compiles TODO write method
         ArrayList<Record> records = new ArrayList<>();
         return records;
