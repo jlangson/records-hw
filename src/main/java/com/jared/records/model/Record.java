@@ -12,7 +12,7 @@ public class Record {
     private String favoriteColor="";
     private LocalDate dateOfBirth=LocalDate.MIN;
     //date in records are given as MM/dd/yyyy. DateTimeFormatter is needed for LocalDate which defaults to YYYY-MM-DD
-    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    private final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     public Record(String lastName, String firstName, String gender, String favoriteColor, String dateOfBirth) {
         this.lastName = lastName;
