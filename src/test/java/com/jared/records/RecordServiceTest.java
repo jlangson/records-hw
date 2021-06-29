@@ -31,7 +31,7 @@ public class RecordServiceTest {
 
     //following tests are for rowToRecord
     @Test
-    public static void createRecordFromCommaRow(){
+    public void createRecordFromCommaRow(){
         Record record = RecordService.rowToRecord(commaRows[0]);
         Record answer = new Record("Doyle", "Hector", "female", "blue", "02/08/1936");
         assertEquals(record, answer);
