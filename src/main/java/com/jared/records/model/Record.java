@@ -1,5 +1,7 @@
 package com.jared.records.model;
 
+import java.util.Objects;
+
 public class Record {
     private String lastName;
     private String firstName;
@@ -84,7 +86,7 @@ public class Record {
     }
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(lastName, firstName, gender, favoriteColor, dateOfBirth);
     }
 
 
