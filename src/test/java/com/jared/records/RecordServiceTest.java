@@ -32,21 +32,21 @@ public class RecordServiceTest {
     //following tests are for rowToRecord
     @Test
     public void createRecordFromCommaRow(){
-        Record record = RecordService.createRecordFromRowGivenDelimiter(commaRows[0],",");
+        Record record = RecordService.rowToRecord(commaRows[0]);
         Record answer = new Record("Doyle", "Hector", "female", "blue", "02/08/1936");
         assertEquals(answer, record);
     }
 
     @Test
     public void createRecordFromPipeRow(){
-        Record record = RecordService.createRecordFromRowGivenDelimiter(pipeRows[0], "\\|" );
+        Record record = RecordService.rowToRecord(pipeRows[0]);
         Record answer = new Record("Peck", "Germaine", "female", "indigo", "06/26/1990");
         assertEquals(answer, record);
     }
 
     @Test
     public void createRecordFromSpaceRow(){
-        Record record = RecordService.createRecordFromRowGivenDelimiter(spaceRows[0], "\\s+");
+        Record record = RecordService.rowToRecord(spaceRows[0]);
         Record answer = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
         assertEquals(answer, record);
     }
