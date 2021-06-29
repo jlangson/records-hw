@@ -7,6 +7,6 @@ public class GenderSorter implements Comparator<Record> {
 
     @Override
     public int compare(Record o1, Record o2) {
-        return 0;
+        return o1.getGender().compareTo(o2.getGender()); //since alphabetically female comes before male can use String's compare
     }
 }
