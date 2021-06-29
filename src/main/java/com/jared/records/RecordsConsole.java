@@ -23,5 +23,10 @@ public class RecordsConsole {
             mainList.addAll(recordOfRecords.get(i));
         }
         System.out.println(mainList.size()); //expect 300
+
+        //keeps three sorted ArrayLists so program doesn't need to resort when a different output is called
+        ArrayList<Record> recordsSortedByGenderThenLastNameAscending = RecordService.sortByGenderThenLastNameAscending(mainList);
+        ArrayList<Record> recordsSortedByBirthDateAscending = RecordService.sortByBirthDateAscending(mainList);
+        ArrayList<Record> recordsSortedByLastNameAscending = RecordService.sortByLastNameDescending(mainList);
     }
 }
