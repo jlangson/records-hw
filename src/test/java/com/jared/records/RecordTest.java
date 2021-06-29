@@ -6,16 +6,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RecordTest {
 
+    public static final Record recordOne = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
+    public static final Record recordTwo = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
+
     @Test
     public void areRecordsWithSameValuesEqual(){
-        Record recordOne = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
-        Record recordTwo = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
         assertEquals(recordOne, recordTwo);
     }
 
     @Test
     public void isRecordEqualToItself(){
-        Record recordOne = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
         assertEquals(recordOne, recordOne);
     }
 }
