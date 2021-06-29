@@ -107,37 +107,37 @@ public class Record {
 
     //for displaying results when sorted by gender so gender appears first.
     public String outputByGenderFirstThenLastName(){
-        return "Record{" +
-                ", gender='" + gender + '\'' +
+        return "Record{ " +
+                "gender='" + gender + '\'' +
                 "lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", favoriteColor='" + favoriteColor + '\'' +
                 ", dateOfBirth='" + formatDateOfBirth() + '\'' +
-                '}';
+                " }";
     }
 
     //for displaying results when sorted by birthday so birthday appears first
     public String outputByBirthDateFirst(){
-        return "Record{" +
-                ", dateOfBirth='" + formatDateOfBirth() + '\'' +
+        return "Record{ " +
+                "dateOfBirth='" + formatDateOfBirth() + '\'' +
                 "lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", favoriteColor='" + favoriteColor + '\'' +
-                '}';
+                " }";
     }
 
     //for displaying by LastName first
     //currently identical to toString(). Added in case toString changes so there is a consistent access to getting
     //output with lastName as the first column.
     public String outputByLastNameFirst(){
-        return "Record{" +
+        return "Record{ " +
                 "lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", favoriteColor='" + favoriteColor + '\'' +
                 ", dateOfBirth='" + formatDateOfBirth() + '\'' +
-                '}';
+                " }";
     }
 
 }
