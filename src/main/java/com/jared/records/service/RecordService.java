@@ -1,6 +1,7 @@
 package com.jared.records.service;
 import com.jared.records.comparator.GenderSorter;
 import com.jared.records.comparator.LastNameAscendingSorter;
+import com.jared.records.comparator.LastNameDescendingSorter;
 import com.jared.records.model.Record;
 
 import java.io.IOException;
@@ -82,9 +83,10 @@ public class RecordService {
 
     //sort by last name, descending
     public static ArrayList<Record> sortByLastNameDescending(ArrayList<Record> records){
-        //filler so it compiles TODO write method
-        ArrayList<Record> sortedRecords = new ArrayList<>();
-        return records;
+        //to make a non-destructive sort
+        ArrayList<Record> recordsCopy = new ArrayList<>(records);
+        Collections.sort(recordsCopy, new LastNameDescendingSorter());
+        return recordsCopy;
     }
 
     //output sorted by gender
