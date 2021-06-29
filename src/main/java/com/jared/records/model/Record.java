@@ -78,7 +78,7 @@ public class Record {
                 ", firstName='" + firstName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", favoriteColor='" + favoriteColor + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", dateOfBirth='" + formatDateOfBirth() + '\'' +
                 '}';
     }
 
