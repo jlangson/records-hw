@@ -24,78 +24,80 @@ public class RecordServiceTest {
   static Record recordThree;
   static Record recordFour;
 
-@BeforeAll
-public static void setup(){
-    //creates rows to represent data from a read file
-    //files can be pipe, comma, or space separated
-    commaRows = new String[]{
-            "Doyle, Hector, female, blue, 02/08/1936",
-            "English, Hamish, male, yellow, 01/11/2012",
-            "Mejia, Rudyard, female, red, 01/10/1945"
-   };
-    pipeRows = new String[]{
-           "Peck | Germaine | female | indigo | 06/26/1990",
-           "Mills | Hoyt | female | yellow | 09/08/1919",
-           "Young | Karyn | female | indigo | 11/08/1997"
-   } ;
-     spaceRows = new String[]{
-            "Summers  Lane  female  indigo  07/14/1988",
-            "Alston  Calista  male  violet  03/30/1985",
-            "Rasmussen  William  male  indigo  12/04/1944"
-    };
+    @BeforeAll
+    public static void setup(){
+        //creates rows to represent data from a read file
+        //files can be pipe, comma, or space separated
+        commaRows = new String[]{
+                "Doyle, Hector, female, blue, 02/08/1936",
+                "English, Hamish, male, yellow, 01/11/2012",
+                "Mejia, Rudyard, female, red, 01/10/1945"
+       };
+        pipeRows = new String[]{
+               "Peck | Germaine | female | indigo | 06/26/1990",
+               "Mills | Hoyt | female | yellow | 09/08/1919",
+               "Young | Karyn | female | indigo | 11/08/1997"
+       } ;
+         spaceRows = new String[]{
+                "Summers  Lane  female  indigo  07/14/1988",
+                "Alston  Calista  male  violet  03/30/1985",
+                "Rasmussen  William  male  indigo  12/04/1944"
+        };
 
-    //file contents are:
-    //Doyle, Hector, female, blue, 02/08/1936
-    //Doyle2, Hector, female, blue, 02/08/1936
-    //Doyle3, Hector, female, blue, 02/08/1936
+        //file contents are:
+        //Doyle, Hector, female, blue, 02/08/1936
+        //Doyle2, Hector, female, blue, 02/08/1936
+        //Doyle3, Hector, female, blue, 02/08/1936
 
-    //Peck | Germaine | female | indigo | 06/26/1990
-    //Peck2 | Germaine | female | indigo | 06/26/1990
+        //Peck | Germaine | female | indigo | 06/26/1990
+        //Peck2 | Germaine | female | indigo | 06/26/1990
 
-    //Summers  Lane  female  indigo  07/14/1988
-    //Summers2  Lane  female  indigo  07/14/1988
-     filePaths = new String[]{
-            "src/test/java/resources/data/commas.csv",
-            "src/test/java/resources/data/pipes.csv",
-            "src/test/java/resources/data/spaces.csv"
-    };
-    recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
-    recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
-    recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
-    recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
-}
+        //Summers  Lane  female  indigo  07/14/1988
+        //Summers2  Lane  female  indigo  07/14/1988
+         filePaths = new String[]{
+                "src/test/java/resources/data/commas.csv",
+                "src/test/java/resources/data/pipes.csv",
+                "src/test/java/resources/data/spaces.csv"
+        };
+        recordOne = new Record("Autumn", "Susan", "female", "green", "07/18/1988");
+        recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
+        recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
+        recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
+    }
 
     //following tests are for rowToRecord
+
     @Test
-    public void createRecordFromCommaRow(){
+    public void testCreateRecordFromCommaRow(){
         Record record = RecordService.rowToRecord(commaRows[0]);
         Record answer = new Record("Doyle", "Hector", "female", "blue", "02/08/1936");
         assertEquals(answer, record);
     }
 
     @Test
-    public void createRecordFromPipeRow(){
+    public void testCreateRecordFromPipeRow(){
         Record record = RecordService.rowToRecord(pipeRows[0]);
         Record answer = new Record("Peck", "Germaine", "female", "indigo", "06/26/1990");
         assertEquals(answer, record);
     }
 
     @Test
-    public void createRecordFromSpaceRow(){
+    public void testCreateRecordFromSpaceRow(){
         Record record = RecordService.rowToRecord(spaceRows[0]);
         Record answer = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
         assertEquals(answer, record);
     }
 
     @Test
-    public void createRecordFromBadDataShouldFail(){
+    public void testCreateRecordFromBadDataShouldFail(){
         Record record = RecordService.rowToRecord("aldjq93487asdjalsdq3784sjda-add091jda-d1d");
         Record answer = new Record();
         assertEquals(answer, record);
     }
+    //End of tests for rowToRecord
 
     @Test
-    public void readRecordsFromFile() throws IOException {
+    public void testReadRecordsFromFile() throws IOException {
         ArrayList<Record> records = RecordService.createAllRecordsFromFile(filePaths[0]);
         ArrayList<Record> answers = new ArrayList<>();
         answers.add(RecordService.rowToRecord("Doyle, Hector, female, blue, 02/08/1936"));
@@ -106,7 +108,7 @@ public static void setup(){
 
     //only tests GenderSorter. Does not test sorting on last name also after gender.
     @Test
-    public void sortRecordsByGender(){
+    public void testSortRecordsByGender(){
         ArrayList<Record> answers = new ArrayList<>();
         ArrayList<Record> results = new ArrayList<>();
 
@@ -126,7 +128,7 @@ public static void setup(){
     }
 
     @Test
-    public void sortRecordsByGenderThenLastNameAscending(){
+    public void testSortRecordsByGenderThenLastNameAscending(){
         ArrayList<Record> answers = new ArrayList<>();
         ArrayList<Record> unsorted = new ArrayList<>();
 
@@ -149,7 +151,7 @@ public static void setup(){
     }
 
     @Test
-    public void sortRecordsByLastNameDescending(){
+    public void testSortRecordsByLastNameDescending(){
         ArrayList<Record> answers = new ArrayList<>();
         ArrayList<Record> unsorted = new ArrayList<>();
 
@@ -171,7 +173,7 @@ public static void setup(){
     }
 
     @Test
-    public void sortRecordsByBirthDateAscending(){
+    public void testSortRecordsByBirthDateAscending(){
         ArrayList<Record> answers = new ArrayList<>();
         ArrayList<Record> unsorted = new ArrayList<>();
 

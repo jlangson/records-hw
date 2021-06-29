@@ -14,14 +14,14 @@ public class RecordTest {
         recordOne = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
         recordTwo = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
     }
-    
+
     @Test
-    public void areRecordsWithSameValuesEqual(){
+    public void testAreRecordsWithSameValuesEqual(){
         assertEquals(recordOne, recordTwo);
     }
 
     @Test
-    public void isRecordEqualToItself(){
+    public void testIsRecordEqualToItself(){
         assertEquals(recordOne, recordOne);
     }
 }
