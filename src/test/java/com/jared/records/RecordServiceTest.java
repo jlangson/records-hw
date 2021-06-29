@@ -11,22 +11,26 @@ public class RecordServiceTest {
     //creates rows to represent data from a read file
     //files can be pipe, comma, or space separated
    public static final String[] commaRows = new String[]{
-            "Stacy, Jacobson, female, yellow, 05/12/21",
-            "Cyrus, Cardenas, male, violet, 05/10/22",
-            "Zeph, Holloway, male, violet, 03/31/22"};
+            "Doyle, Hector, female, blue, 02/08/1936",
+            "English, Hamish, male, yellow, 01/11/2012",
+            "Mejia, Rudyard, female, red, 01/10/1945"
+   };
    public static final String[] pipeRows = new String[]{
-            "Troy | Dillard | female | red | 04/14/22",
-            "Florence | Lawson | female | orange | 10/01/20",
-            "Athena | Ortiz | male | yellow | 12/14/20"};
+           "Peck | Germaine | female | indigo | 06/26/1990",
+           "Mills | Hoyt | female | yellow | 09/08/1919",
+           "Young | Karyn | female | indigo | 11/08/1997"
+   } ;
     public static final String[] spaceRows = new String[]{
-            "Kimberly Zimmerman female blue 04/23/22",
-            "Francis White male indigo 09/19/20",
-            "Austin Simon female violet 05/30/22"};
-    
+            "Summers  Lane  female  indigo  07/14/1988",
+            "Alston  Calista  male  violet  03/30/1985",
+            "Rasmussen  William  male  indigo  12/04/1944"
+    };
+
     //following tests are for rowToRecord
     @Test
     public static void createRecordFromCommaRow(){
         Record record = RecordService.rowToRecord(commaRows[0]);
+        Record answer = new Record()
     }
 
     @Test
