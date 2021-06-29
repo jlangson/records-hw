@@ -62,7 +62,7 @@ public class Record {
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = LocalDate.parse(dateOfBirth);
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, dateFormat);
     }
 
     public String formatDateOfBirth(){
