@@ -17,6 +17,9 @@ public class Record {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public Record() {
+    }
+
     public String getLastName() {
         return lastName;
     }
