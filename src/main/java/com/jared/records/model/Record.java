@@ -66,7 +66,7 @@ public class Record {
     }
 
     public String formatDateOfBirth(){
-        String month = String.valueOf(dateOfBirth.getMonth());
+        String month = String.valueOf(dateOfBirth.getMonthValue());
         String year = String.valueOf(dateOfBirth.getYear());
         String day = String.valueOf(dateOfBirth.getDayOfMonth());
         return month + "/"  + day + "/" + year;
