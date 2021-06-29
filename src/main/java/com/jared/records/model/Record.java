@@ -3,11 +3,11 @@ package com.jared.records.model;
 import java.util.Objects;
 
 public class Record {
-    private String lastName;
-    private String firstName;
-    private String gender;
-    private String favoriteColor;
-    private String dateOfBirth;
+    private String lastName="";
+    private String firstName="";
+    private String gender="";
+    private String favoriteColor="";
+    private String dateOfBirth="";
 
     public Record(String lastName, String firstName, String gender, String favoriteColor, String dateOfBirth) {
         this.lastName = lastName;
