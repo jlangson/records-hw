@@ -1,4 +1,5 @@
 package com.jared.records.service;
+import com.jared.records.comparator.BirthDateAscendingSorter;
 import com.jared.records.comparator.GenderSorter;
 import com.jared.records.comparator.LastNameAscendingSorter;
 import com.jared.records.comparator.LastNameDescendingSorter;
@@ -76,9 +77,10 @@ public class RecordService {
 
     //sort by birth date, ascending
     public static ArrayList<Record> sortByBirthDateAscending(ArrayList<Record> records){
-        //filler so it compiles TODO write method
-        ArrayList<Record> sortedRecords = new ArrayList<>();
-        return records;
+        //to make a non-destructive sort
+        ArrayList<Record> recordsCopy = new ArrayList<>(records);
+        Collections.sort(recordsCopy, new BirthDateAscendingSorter());
+        return recordsCopy;
     }
 
     //sort by last name, descending
