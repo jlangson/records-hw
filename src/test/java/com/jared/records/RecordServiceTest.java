@@ -1,4 +1,5 @@
 package com.jared.records;
+import com.jared.records.comparator.GenderSorter;
 import com.jared.records.model.Record;
 import com.jared.records.service.RecordService;
 
@@ -8,6 +9,7 @@ import org.springframework.util.Assert;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,7 +51,7 @@ public class RecordServiceTest {
     public static final Record recordTwo = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
     public static final Record recordThree = new Record("Alston", "Calista", "male", "violet", "03/30/1985");
     public static final Record recordFour = new Record("Rasmussen", "William", "male", "indigo", "12/04/1944");
-    
+
 
     //following tests are for rowToRecord
     @Test
@@ -93,7 +95,22 @@ public class RecordServiceTest {
     //only tests GenderSorter. Does not test sorting on last name also after gender.
     @Test
     public void sortRecordsByGender(){
+        ArrayList<Record> answers = new ArrayList<>();
+        ArrayList<Record> results = new ArrayList<>();
 
+        answers.add(recordOne);
+        answers.add(recordThree);
+
+        results.add(recordThree);
+        results.add(recordOne);
+//
+//        System.out.println("answers\n"+answers+"\n===\n");
+//        System.out.println("unsorted\n" + results + "\n==\n");
+
+        Collections.sort(results, new GenderSorter());
+//        System.out.println("sorted\n" + results +"\n==\n");
+
+        assertEquals(answers, results);
     }
 
     @Test
@@ -113,8 +130,8 @@ public class RecordServiceTest {
         unsorted.add(recordFour);
 
         ArrayList<Record> results = RecordService.sortByGenderThenLastNameAscending(unsorted);
-        System.out.println(answers);
-        System.out.println(results);
+//        System.out.println(answers);
+//        System.out.println(results);
         assertEquals(answers, results);
 
     }
