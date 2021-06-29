@@ -30,6 +30,22 @@ public class RecordServiceTest {
             "Rasmussen  William  male  indigo  12/04/1944"
     };
 
+    //file contents are:
+    //Doyle, Hector, female, blue, 02/08/1936
+    //Doyle2, Hector, female, blue, 02/08/1936
+    //Doyle3, Hector, female, blue, 02/08/1936
+
+    //Peck | Germaine | female | indigo | 06/26/1990
+    //Peck2 | Germaine | female | indigo | 06/26/1990
+
+    //Summers  Lane  female  indigo  07/14/1988
+    //Summers2  Lane  female  indigo  07/14/1988
+    public static final String[] filePaths = new String[]{
+            "src/test/java/resources/data/commas.csv",
+            "src/test/java/resources/data/pipes.csv",
+            "src/test/java/resources/data/spaces.csv"
+    };
+
     //following tests are for rowToRecord
     @Test
     public void createRecordFromCommaRow(){
@@ -60,30 +76,12 @@ public class RecordServiceTest {
     }
 
     @Test
-    public void readRecordsFromFiles() throws IOException {
-        //file contents are:
-        //Doyle, Hector, female, blue, 02/08/1936
-        //Doyle2, Hector, female, blue, 02/08/1936
-
-        //Peck | Germaine | female | indigo | 06/26/1990
-        //Peck2 | Germaine | female | indigo | 06/26/1990
-
-        //Summers  Lane  female  indigo  07/14/1988
-        //Summers2  Lane  female  indigo  07/14/1988
-
-        final String[] filePaths = new String[]{
-                "src/test/java/resources/data/commas.csv",
-                "src/test/java/resources/data/pipes.csv",
-                "src/test/java/resources/data/spaces.csv"
-        };
-        ArrayList<Record> records = RecordService.createAllRecordsFromFiles(filePaths);
+    public void readRecordsFromFile() throws IOException {
+        ArrayList<Record> records = RecordService.createAllRecordsFromFile(filePaths[0]);
         ArrayList<Record> answers = new ArrayList<>();
         answers.add(RecordService.rowToRecord("Doyle, Hector, female, blue, 02/08/1936"));
         answers.add(RecordService.rowToRecord("Doyle2, Hector, female, blue, 02/08/1936"));
-        answers.add(RecordService.rowToRecord("Peck | Germaine | female | indigo | 06/26/1990"));
-        answers.add((RecordService.rowToRecord("Peck2 | Germaine | female | indigo | 06/26/1990")));
-        answers.add(RecordService.rowToRecord("Summers  Lane  female  indigo  07/14/1988"));
-        answers.add((RecordService.rowToRecord("Summers2  Lane  female  indigo  07/14/1988")));
+        answers.add(RecordService.rowToRecord("Doyle3, Hector, female, blue, 02/08/1936"));
         assertEquals(answers, records);
     }
 
