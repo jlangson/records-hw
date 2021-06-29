@@ -6,9 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordService {
-    //turn row into a Record
-    public static Record rowToRecord(String row){
 
+    //turn row into a Record
+    //rows will not contain delimiters of other types in the fields.
+    //delimiters are "," "|" " "
+    public static Record rowToRecord(String row){
+        Record record = new Record();
+
+        if(row.contains("|")){
+
+        } else if (row.contains(",")){
+
+        } else if (row.contains(" ")){
+
+        } else { //bad row if this happens
+            //TODO what happens here? Log it?
+
+        }
+        return record;
     }
 
     //turn all rows in a file into a Record collection
