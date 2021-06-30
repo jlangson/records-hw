@@ -34,12 +34,7 @@ public class MainControllerTests {
         RecordsApplication.main(args);
 
     }
-
-    @AfterAll
-    public static void cleanup(){
-        System.exit(0);
-    }
-
+    
     @Test
     public void testGetRecordsByGender_ResponseCode() throws IOException {
         HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
