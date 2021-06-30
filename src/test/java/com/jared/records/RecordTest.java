@@ -24,4 +24,15 @@ public class RecordTest {
     public void testIsRecordEqualToItself(){
         assertEquals(recordOne, recordOne);
     }
+
+    //makes sure record  ids are incremented
+    @Test
+    public void testIsFirstRecordIdOne(){
+        assertEquals(1, recordOne.getId());
+    }
+
+    @Test
+    public void testIsSecondRecordIdTwo(){
+        assertEquals(2, recordTwo.getId());
+    }
 }
