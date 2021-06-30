@@ -2,8 +2,8 @@ package com.jared.records.exception;
 
 public class InvalidRecordException extends Exception {
 
-    InvalidRecordException(){}
-    InvalidRecordException(String str){
+    public InvalidRecordException(){}
+    public InvalidRecordException(String str){
         super(str);
     }
 }
