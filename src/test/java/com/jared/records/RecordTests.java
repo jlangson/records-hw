@@ -5,7 +5,7 @@ import com.jared.records.model.Record;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RecordTest {
+public class RecordTests {
     static Record recordOne;
     static Record recordTwo;
     static Record emptyRecordOne;
