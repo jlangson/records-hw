@@ -5,7 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Record {
+    //first record starts at 1. this is increased as new records are made.
+    private static int currentIdValue = 1;
     //default values to avoid null pointer errors in .equals()
+    private int id;
     private String lastName="";
     private String firstName="";
     private String gender="";
@@ -20,6 +23,8 @@ public class Record {
         this.gender = gender;
         this.favoriteColor = favoriteColor;
         this.dateOfBirth = LocalDate.parse(dateOfBirth, dateFormat);
+        id = currentIdValue;
+        currentIdValue++;
     }
 
     public Record() {
@@ -63,6 +68,11 @@ public class Record {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = LocalDate.parse(dateOfBirth, dateFormat);
+    }
+
+    //no setter. Don't want id changed.
+    public int getId(){
+        return id;
     }
 
     public String formatDateOfBirth(){
