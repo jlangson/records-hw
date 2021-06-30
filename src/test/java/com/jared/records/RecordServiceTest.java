@@ -46,7 +46,7 @@ public class RecordServiceTest {
         //file contents are:
         //Doyle, Hector, female, blue, 02/08/1936
         //Doyle2, Hector, female, blue, 02/08/1936
-        //Doyle3, Hector, female, blue, 02/08/1936
+        //Doyle3, Hector, female, blue, 02/08/1936  //there are 3 Doyle entries for a longer file reading test.
 
         //Peck | Germaine | female | indigo | 06/26/1990
         //Peck2 | Germaine | female | indigo | 06/26/1990
@@ -173,7 +173,7 @@ public class RecordServiceTest {
         ArrayList<Record> unsorted = new ArrayList<>();
 
         //recordsOne to recordsFour are shared between tests, so there is no inherent ordering
-        //going 4 to 1 is a coincidence
+        //going recordFour recordThree recordTwo recordOne is a coincidence
         answers.add(recordFour);
         answers.add(recordThree);
         answers.add(recordTwo);
@@ -186,48 +186,5 @@ public class RecordServiceTest {
 
         ArrayList<Record> results = RecordService.sortByBirthDateAscending(unsorted);
         assertEquals(answers,results);
-    }
-
-    //following tests are for recordValidation
-
-    @Test
-    public void testPipeGoodData(){
-
-
-    }
-
-    @Test
-    public void testCommaGoodData(){
-
-    }
-
-    @Test
-    public void testSpaceGoodData(){
-
-    }
-
-    @Test
-    public void testOneLineBadData(){
-
-    }
-
-    @Test
-    public void testCommasPipesSpacesBadData(){
-
-    }
-
-    @Test
-    public void testNotAllFieldsSpaceSeparatedBadData(){
-
-    }
-
-    @Test
-    public void testNotAllFieldsPipeSeparatedBadData(){
-
-    }
-
-    @Test
-    public void testNotAllFieldsCommaSeparatedBadData(){
-
     }
 }
