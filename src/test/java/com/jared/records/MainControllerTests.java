@@ -70,11 +70,22 @@ public class MainControllerTests {
     }
 
     @Test
-    public void testGetRecordsByBirthDate_ResponseCode(){
+    public void testGetRecordsByBirthDate_ResponseCode() throws IOException {
+        HttpUriRequest request = new HttpGet("http://localhost:8080/records/birthdate");
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+
+        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
 
     }
     @Test
-    public void testGetRecordsByBirthDate_Headers(){
+    public void testGetRecordsByBirthDate_Headers() throws IOException {
+        String jsonMimeType = "application/json";
+        HttpUriRequest request = new HttpGet("http://localhost:8080/records/birthdate");
+
+        HttpResponse response = HttpClientBuilder.create().build().execute(request);
+        String mimetype = ContentType.getOrDefault(response.getEntity()).getMimeType();
+
+        assertEquals(jsonMimeType, mimetype);
 
     }
     @Test
@@ -84,11 +95,22 @@ public class MainControllerTests {
     }
 
     @Test
-    public void testGetRecordsByLastName_ResponseCode(){
+    public void testGetRecordsByLastName_ResponseCode() throws IOException {
+        HttpUriRequest request = new HttpGet("http://localhost:8080/records/name");
+        HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
+
+        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
 
     }
     @Test
-    public void testGetRecordsbyLastName_Headers(){
+    public void testGetRecordsbyLastName_Headers() throws IOException {
+        String jsonMimeType = "application/json";
+        HttpUriRequest request = new HttpGet("http://localhost:8080/records/name");
+
+        HttpResponse response = HttpClientBuilder.create().build().execute(request);
+        String mimeType = ContentType.getOrDefault(response.getEntity()).getMimeType();
+
+        assertEquals(jsonMimeType, mimeType);
 
     }
     @Test
