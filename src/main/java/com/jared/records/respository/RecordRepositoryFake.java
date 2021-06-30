@@ -12,9 +12,11 @@ public class RecordRepositoryFake {
     private ArrayList <Record> lastNameSorted;
 
     //takes an AL of records and then creates the three different sorting criteria.
-    RecordRepositoryFake(ArrayList<Record> records) {
+    public RecordRepositoryFake(ArrayList<Record> records) {
         genderSorted = RecordService.sortByGenderThenLastNameAscending(records);
         birthDateSorted = RecordService.sortByBirthDateAscending(records);
         lastNameSorted = RecordService.sortByLastNameDescending(records);
     }
+
+    
 }
