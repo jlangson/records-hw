@@ -35,12 +35,12 @@ public class RecordsConsole {
         ArrayList<Record> recordsSortedByBirthDateAscending = RecordService.sortByBirthDateAscending(initialList);
         ArrayList<Record> recordsSortedByLastNameDescending = RecordService.sortByLastNameDescending(initialList);
 
-        //ouputs
+        //outputs
         System.out.println("Records sorted by gender then lastname in ascending order\n==========");
         RecordService.printGenderThenLastNameAscendingSort(recordsSortedByGenderThenLastNameAscending);
         System.out.println("Records sorted by dateOfBirth in ascending order\n=============");
         RecordService.printBirthDateAscendingSort(recordsSortedByBirthDateAscending);
-        System.out.println("Records sortd by lastname in descending order\n============");
+        System.out.println("Records sorted by lastname in descending order\n============");
         RecordService.printLastNameDescendingSort(recordsSortedByLastNameDescending);
     }
 }
