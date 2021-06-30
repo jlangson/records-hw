@@ -29,15 +29,31 @@ public class MainController {
 
     @PostMapping(value = "/records")
     public ResponseEntity<Void> createRecord(@RequestBody String string, BindingResult bindingResult){ //do I need BindingResult?
-        ResponseEntity<Void> response;
-
+        //is changed on good data
+        ResponseEntity<Void> response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        Record record
         try{
             Record record = RecordService.rowToRecord(string);
-            response = new ResponseEntity<>(HttpStatus.CREATED);
-            System.out.println(record);
         } catch (Exception e){
+            //if it fails bad response sent back by default values
+        }
+
+        if(record.isValid()){
+            response = new ResponseEntity<>(HttpStatus.CREATED);
+            //remember to save it
+            //also include the created record in the response
+            System.out.println(record);
+        } else{
             response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
+//        try{
+//            Record record = RecordService.rowToRecord(string);
+//            response = new ResponseEntity<>(HttpStatus.CREATED);
+//            System.out.println(record);
+//        } catch (Exception e){
+//            response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
 
         return response;
     }
