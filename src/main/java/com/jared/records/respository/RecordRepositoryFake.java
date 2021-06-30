@@ -19,11 +19,25 @@ public class RecordRepositoryFake {
     }
 
     //keeps arraylists synchronized
-    //sorting is done on read
+    //sorting is done on write based on assumption that reads are more common than writes
     public void add(Record record){
         genderSorted.add(record);
         birthDateSorted.add(record);
         lastNameSorted.add(record);
+        genderSorted = RecordService.sortByGenderThenLastNameAscending(genderSorted);
+        birthDateSorted = RecordService.sortByBirthDateAscending(birthDateSorted);
+        lastNameSorted = RecordService.sortByLastNameDescending(lastNameSorted);
     }
 
+    public ArrayList<Record> getGenderSorted(){
+        return genderSorted;
+    }
+
+    public ArrayList<Record> getBirthDateSorted() {
+        return birthDateSorted;
+    }
+
+    public  ArrayList<Record> getLastNameSorted(){
+        return lastNameSorted;
+    }
 }
