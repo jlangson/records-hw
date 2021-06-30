@@ -58,7 +58,14 @@ public class MainControllerTests {
     }
     @Test
     //should return a json with the first column is gender
-    public void testGetRecordsByGender_Payload(){
+    public void testGetRecordsByGender_Payload() throws IOException {
+        HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
+
+        HttpResponse response = HttpClientBuilder.create().build().execute(request);
+        response.getEntity().getContent();
+        System.out.println();
+
+        assertEquals(0,1); //force it to fail since not finished
 
     }
 
@@ -73,6 +80,7 @@ public class MainControllerTests {
     @Test
     public void testGetRecordsByBirthDate_Payloiad(){
 
+        assertEquals(0,1); //force it to fail since not finished
     }
 
     @Test
@@ -85,6 +93,7 @@ public class MainControllerTests {
     }
     @Test
     public void testGetRecordsByLastName_Payload(){
+        assertEquals(0,1); //force it to fail since not finished
 
     }
 
