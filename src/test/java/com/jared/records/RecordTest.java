@@ -29,13 +29,9 @@ public class RecordTest {
 
     //makes sure record  ids are incremented
     @Test
-    public void testIsFirstRecordIdOne(){
-        assertEquals(1, recordOne.getId());
-    }
+    public void testIsRecordTwoIdOneMoreThanRecordOneID(){
 
-    @Test
-    public void testIsSecondRecordIdTwo(){
-        assertEquals(2, recordTwo.getId());
+        assertEquals(recordTwo.getId(), recordOne.getId()+1);
     }
 
     @Test
