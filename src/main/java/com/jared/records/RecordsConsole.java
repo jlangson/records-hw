@@ -3,7 +3,6 @@ import com.jared.records.model.Record;
 import com.jared.records.service.RecordService;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //for running part one of the assignment
