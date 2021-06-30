@@ -188,4 +188,47 @@ public class RecordServiceTest {
         ArrayList<Record> results = RecordService.sortByBirthDateAscending(unsorted);
         assertEquals(answers,results);
     }
+
+    //following tests are for recordValidation
+
+    @Test
+    public void testPipeGoodData(){
+
+
+    }
+
+    @Test
+    public void testCommaGoodData(){
+
+    }
+
+    @Test
+    public void testSpaceGoodData(){
+
+    }
+
+    @Test
+    public void testOneLineBadData(){
+
+    }
+
+    @Test
+    public void testCommasPipesSpacesBadData(){
+
+    }
+
+    @Test
+    public void testNotAllFieldsSpaceSeparatedBadData(){
+
+    }
+
+    @Test
+    public void testNotAllFieldsPipeSeparatedBadData(){
+
+    }
+
+    @Test
+    public void testNotAllFieldsCommaSeparatedBadData(){
+
+    }
 }

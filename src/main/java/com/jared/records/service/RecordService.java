@@ -36,6 +36,12 @@ public class RecordService {
         return new Record(lastName, firstName, gender, favoriteColor, dateOfBirth);
     }
 
+    public static boolean validRecord(Record record){
+        boolean isValid=false;
+
+        return isValid;
+    }
+
     //turn row into a Record
     //rows will not contain delimiters of other types in the fields.
     //delimiters are "," "|" " "
