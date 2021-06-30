@@ -8,11 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RecordTest {
     static Record recordOne;
     static Record recordTwo;
+    static Record emptyRecordOne; //for testing id
 
     @BeforeAll
     static void setup(){
         recordOne = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
         recordTwo = new Record("Langson", "Jared", "male", "blue", "10/14/1988");
+        emptyRecordOne = new Record();
     }
 
     @Test
@@ -34,5 +36,10 @@ public class RecordTest {
     @Test
     public void testIsSecondRecordIdTwo(){
         assertEquals(2, recordTwo.getId());
+    }
+
+    @Test
+    public void testEmptyRecordIdThree(){
+        assertEquals(3, emptyRecordOne.getId());
     }
 }

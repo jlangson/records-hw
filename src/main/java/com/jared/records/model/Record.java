@@ -28,6 +28,8 @@ public class Record {
     }
 
     public Record() {
+        id = currentIdValue;
+        currentIdValue++;
     }
 
     public String getLastName() {
