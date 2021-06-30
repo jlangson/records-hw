@@ -138,7 +138,19 @@ public class MainControllerTests {
         assertEquals(HttpStatus.SC_CREATED, response.getStatusLine().getStatusCode());
     }
     @Test
-    public void testCreateRecordFailure_ResponseCode(){
+    public void testCreateRecordFailure_ResponseCode() throws IOException {
+
+        HttpClient httpClient = HttpClients.createDefault();
+        String string = "sdalkjdoiawjdoqwjdioaj";
+        StringEntity entity = new StringEntity(string,
+                ContentType.create("text/plain", "UTF-8"));
+        HttpPost httppost= new HttpPost("http://localhost:8080/records");
+        httppost.setEntity(entity);
+
+        //now I need to send it.
+        HttpResponse response = httpClient.execute(httppost);
+
+        assertEquals(HttpStatus.SC_BAD_REQUEST, response.getStatusLine().getStatusCode());
 
     }
     @Test
