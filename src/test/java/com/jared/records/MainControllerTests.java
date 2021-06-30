@@ -1,27 +1,26 @@
 package com.jared.records;
-import com.jared.records.controller.MainController;
-import com.jared.records.model.Record;
-import org.apache.hc.client5.http.classic.methods.HttpGet;
-import org.apache.hc.client5.http.classic.methods.HttpUriRequest;
-import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
-import org.apache.hc.core5.http.HttpResponse;
-import org.apache.hc.core5.http.HttpStatus;
+
+
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.ResponseEntity;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.entity.ContentType;
+import org.apache.http.impl.client.HttpClientBuilder;
+
 
 public class MainControllerTests {
-//    public static ResponseEntity<ArrayList<Record>> genderResponse;
-//    public static ResponseEntity<ArrayList<Record>> birthDateResponse;
-//    public static ResponseEntity<ArrayList<Record>> lastNameResponse;
-//    public static ResponseEntity<Void> goodCreateResponse;
-//    public static ResponseEntity<Void> badCreateResponse;
-//
+
 //    //three tests per GET endpoint: response code, headers, and payload
 //    //POST needs two response code tests since it can return success or fail
 //
@@ -42,11 +41,18 @@ public class MainControllerTests {
         HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
         HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 
-        assertEquals(HttpStatus.SC_OK, httpResponse.getCode());
+        assertEquals(HttpStatus.SC_OK, httpResponse.getStatusLine().getStatusCode());
 
     }
     @Test
-    public void testGetRecordsByGender_Headers(){
+    public void testGetRecordsByGender_Headers() throws IOException{
+        String jsonMimeType = "application/json";
+        HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
+        HttpResponse response = HttpClientBuilder.create().build().execute(request);
+
+//        String mimeType = ContentType.
+
+//        String mimeType = ContentType.getOrDefault(response.getEntity()).getMimeType();
 
     }
     @Test
