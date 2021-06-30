@@ -155,7 +155,22 @@ public class MainControllerTests {
 
     }
     @Test
-    public void testCreateRecord_Header(){
+    public void testCreateRecord_Header() throws IOException {
+        //setup
+        String jsonMimeType = "application/json";
+        HttpClient httpClient = HttpClients.createDefault();
+        String string = "Imaginary | Person | male | green | 12/25/2020";
+        StringEntity entity = new StringEntity(string,
+                ContentType.create("text/plain", "UTF-8"));
+        HttpPost httppost= new HttpPost("http://localhost:8080/records");
+        httppost.setEntity(entity);
+
+        //now I need to send it.
+        HttpResponse response = httpClient.execute(httppost);
+        
+        String mimetype = ContentType.getOrDefault(response.getEntity()).getMimeType();
+
+        assertEquals(jsonMimeType, mimetype);
 
     }
 
