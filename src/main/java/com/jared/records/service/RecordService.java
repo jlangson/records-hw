@@ -3,7 +3,6 @@ import com.jared.records.comparator.BirthDateAscendingSorter;
 import com.jared.records.comparator.GenderSorter;
 import com.jared.records.comparator.LastNameAscendingSorter;
 import com.jared.records.comparator.LastNameDescendingSorter;
-import com.jared.records.exception.InvalidRecordException;
 import com.jared.records.model.Record;
 
 import java.io.IOException;
@@ -63,7 +62,7 @@ public class RecordService {
     }
 
     //turn all rows in a file into a Record collection
-    public static ArrayList<Record> createAllRecordsFromFile(String filePath) throws IOException, InvalidRecordException {
+    public static ArrayList<Record> createAllRecordsFromFile(String filePath) throws IOException {
         ArrayList<Record> records = new ArrayList<>();
         Path path = Paths.get(filePath);
         String entireFile = new String(Files.readAllBytes(path));

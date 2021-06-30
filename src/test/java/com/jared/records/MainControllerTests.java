@@ -1,7 +1,7 @@
 package com.jared.records;
 
 
-import com.jared.records.exception.InvalidRecordException;
+
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -29,7 +29,7 @@ public class MainControllerTests {
 //    //POST needs two response code tests since it can return success or fail
 //
     @BeforeAll
-    public static void setup() throws IOException, InvalidRecordException {
+    public static void setup() throws IOException {
         String[] args = new String[]{""};
         RecordsApplication.main(args);
 
