@@ -45,7 +45,7 @@ public class RecordService {
     //turn row into a Record
     //rows will not contain delimiters of other types in the fields.
     //delimiters are "," "|" " "
-    public static Record rowToRecord(String row) throws InvalidRecordException {
+    public static Record rowToRecord(String row) {
         Record record = new Record();
 
         if(row.contains(",")){
@@ -57,7 +57,7 @@ public class RecordService {
         } else { //bad row if this happens
             //TODO what happens here? Log it?
             //empty constructor makes a Record with id -1 which is a way to detect bad inputs.
-            throw new InvalidRecordException("invalid record format");
+//            throw new InvalidRecordException("invalid record format");
         }
         return record;
     }
