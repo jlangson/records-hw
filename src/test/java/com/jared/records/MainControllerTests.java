@@ -48,11 +48,12 @@ public class MainControllerTests {
     public void testGetRecordsByGender_Headers() throws IOException{
         String jsonMimeType = "application/json";
         HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
+
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 
-//        String mimeType = ContentType.
+        String mimeType = ContentType.getOrDefault(response.getEntity()).getMimeType();
 
-//        String mimeType = ContentType.getOrDefault(response.getEntity()).getMimeType();
+        assertEquals(jsonMimeType, mimeType);
 
     }
     @Test
