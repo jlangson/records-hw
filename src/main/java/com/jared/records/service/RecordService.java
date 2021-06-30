@@ -14,11 +14,13 @@ import java.util.Collections;
 
 
 public class RecordService {
+    //file paths of the three data inputs.
     public static final String paths[] = new String[]{
             "src/main/resources/data/pipes.csv",
             "src/main/resources/data/spaces.csv",
             "src/main/resources/data/commas.csv"};
 
+    //helper function for createRecordFromRow
     public static Record createRecordFromRowGivenDelimiter(String row, String delimiter){
         String[] fields = row.split(delimiter);
         for(int i=0; i < fields.length; i++){
@@ -52,10 +54,9 @@ public class RecordService {
             record = createRecordFromRowGivenDelimiter(row, "\\|");
         } else if (row.contains(" ")){
             record = createRecordFromRowGivenDelimiter(row, "\\s+");
-        } else { //bad row if this happens
-            //TODO what happens here? Log it?
-            //empty constructor makes a Record with id -1 which is a way to detect bad inputs.
-//            throw new InvalidRecordException("invalid record format");
+        } else {
+            //do nothing on records that cannot be parsed.
+            //error checking is handled elsewhere
         }
         return record;
     }
@@ -64,7 +65,7 @@ public class RecordService {
     public static ArrayList<Record> createAllRecordsFromFile(String filePath) throws IOException {
         ArrayList<Record> records = new ArrayList<>();
         Path path = Paths.get(filePath);
-        String entireFile = new String(Files.readAllBytes(path));
+        String entireFile = new String(Files.readAllBytes(path)); //reads entire file into a String
         String[] rows = entireFile.split("\n"); //create rows on newlines
         for(int i=0; i < rows.length; i++){
             Record record = rowToRecord(rows[i]);

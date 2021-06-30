@@ -24,9 +24,9 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 public class MainControllerTests {
 
-//    //three tests per GET endpoint: response code, headers, and payload
-//    //POST needs two response code tests since it can return success or fail
-//
+    //two tests per GET endpoint: response code and headers
+    //payload tests not implemented since GET requests return entire database
+    //POST needs two response code tests since it can return success or fail
     @BeforeAll
     public static void setup() throws IOException {
         String[] args = new String[]{""};
@@ -55,7 +55,6 @@ public class MainControllerTests {
 
     }
 //    @Test
-    //should return a json with the first column is gender
 //    public void testGetRecordsByGender_Payload() throws IOException {
 //        HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
 //
@@ -87,7 +86,7 @@ public class MainControllerTests {
 
     }
 //    @Test
-//    public void testGetRecordsByBirthDate_Payloiad(){
+//    public void testGetRecordsByBirthDate_Payload(){
 //
 //        assertEquals(0,1); //force it to fail since not finished
 //    }
@@ -167,7 +166,4 @@ public class MainControllerTests {
         assertEquals(jsonMimeType, mimetype);
 
     }
-
-
-
 }

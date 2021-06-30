@@ -8,7 +8,7 @@ public class Record {
     //first record starts at 1. this is increased as new records are made.
     private static int currentIdValue = 1;
     //default values to avoid null pointer errors in .equals()
-    private int id=-1; //shows bad data was attempted to be entered. As new empty Constructor does not adjust the id.
+    private int id=-1; //shows bad data was attempted to be entered.
     private String lastName="";
     private String firstName="";
     private String gender="";
@@ -84,6 +84,7 @@ public class Record {
 
     //assists with record validation.
     //invalid records should not be added.
+    //not exhaustive
     public boolean isValid(){
         //if any of those are true, the record is invalid.
         //! reverses the truth values
@@ -103,7 +104,8 @@ public class Record {
                 '}';
     }
 
-    //equality is when every field is identical
+    //equality is when there is identical content. Every field but id should be identical.
+    //this is for sorting. With unique ids, requiring equality on id would break sorting.
     @Override
     public boolean equals(Object obj) {
         if (this == obj){
@@ -147,8 +149,8 @@ public class Record {
     }
 
     //for displaying by LastName first
-    //currently identical to toString(). Added in case toString changes so there is a consistent access to getting
-    //output with lastName as the first column.
+    //used to be identical to toString(). Added in case toString was changed (which happened)
+    // so there is a consistent access to getting output with lastName as the first column.
     public String outputByLastNameFirst(){
         return "Record{ " +
                 "lastName='" + lastName + '\'' +

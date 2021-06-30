@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RecordTest {
     static Record recordOne;
     static Record recordTwo;
-    static Record emptyRecordOne; //for testing id
+    static Record emptyRecordOne;
 
     @BeforeAll
     static void setup(){

@@ -22,8 +22,7 @@ public class MainController {
 
 
     @PostMapping(value = "/records")
-    public ResponseEntity<?> createRecord(@RequestBody String request){ //do I need BindingResult?
-        //is changed on good data
+    public ResponseEntity<?> createRecord(@RequestBody String request){
         BadRequest badRequest = new BadRequest(request); //only sent if making a good record fails
         ResponseEntity<BadRequest> badResponse = new ResponseEntity<BadRequest>(badRequest, HttpStatus.BAD_REQUEST);
 
@@ -31,14 +30,12 @@ public class MainController {
            Record record = RecordService.rowToRecord(request);
             if(record.isValid()) {
                ResponseEntity<Record> goodResponse = new ResponseEntity<Record>(record,HttpStatus.CREATED);
-
-                //TODO also include the created record in the response
                 repository.add(record);
                 System.out.println("Record was added as " + record);
                 return goodResponse;
             }
         } catch (Exception e){
-            //badResponse is made by default so there's nothing to do here
+            //badResponse is made by default at the start of the method so there's no need to make it again.
             System.out.println("The bad request is " + badRequest);
         }
 
@@ -47,7 +44,6 @@ public class MainController {
 
     @GetMapping(value = "/records/gender")
     public ResponseEntity<ArrayList<Record>> getRecordsByGender(){
-        //Filler so it compiles. TODO write this
         ArrayList<Record> records = repository.getGenderSorted();
         ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(records, HttpStatus.OK);
         return response;
