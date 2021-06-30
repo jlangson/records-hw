@@ -36,8 +36,9 @@ public class MainController {
             record = RecordService.rowToRecord(string);
             if(record.isValid()) {
                 response = new ResponseEntity<>(HttpStatus.CREATED);
-                //remember to save it
-                //also include the created record in the response
+
+                //TODO also include the created record in the response
+                repository.add(record);
                 System.out.println(record);
             }
         } catch (Exception e){
