@@ -43,15 +43,15 @@ public class MainController {
 
     @GetMapping(value = "/records/birthdate")
     public ResponseEntity<ArrayList<Record>> getRecordsByBirthdate(){
-        //Filler so it compiles. TODO write this
-        ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(HttpStatus.BAD_REQUEST);
+        ArrayList<Record> records = repository.getBirthDateSorted();
+        ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(records, HttpStatus.OK);
         return response;
     }
 
     @GetMapping(value = "/records/name")
     public ResponseEntity<ArrayList<Record>> getRecordsByLastName(){
-        //Filler so it compiles. TODO write this
-        ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(HttpStatus.BAD_REQUEST);
+        ArrayList<Record> records = repository.getLastNameSorted();
+        ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(records, HttpStatus.OK);
         return response;
     }
 
