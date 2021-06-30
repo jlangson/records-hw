@@ -2,7 +2,10 @@ package com.jared.records;
 
 
 import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -120,8 +123,19 @@ public class MainControllerTests {
     }
 
     @Test
-    public void testCreateRecordSuccess_ResponseCode(){
+    public void testCreateRecordSuccess_ResponseCode() throws IOException {
+        //setup
+        HttpClient httpClient = HttpClients.createDefault();
+        String string = "Imaginary | Person | male | green | 12/25/2020";
+        StringEntity entity = new StringEntity(string,
+                ContentType.create("text/plain", "UTF-8"));
+        HttpPost httppost= new HttpPost("http://localhost:8080/records");
+        httppost.setEntity(entity);
 
+        //now I need to send it.
+        HttpResponse response = httpClient.execute(httppost);
+
+        assertEquals(HttpStatus.SC_CREATED, response.getStatusLine().getStatusCode());
     }
     @Test
     public void testCreateRecordFailure_ResponseCode(){
