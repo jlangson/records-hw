@@ -49,9 +49,9 @@ public class RecordService {
             record = createRecordFromRowGivenDelimiter(row, "\\s+");
         } else { //bad row if this happens
             //TODO what happens here? Log it?
-
+            //empty constructor makes a Record with id -1 which is a way to detect bad inputs.
         }
-        return record; //if the id is -1 then it was bad data. used in handling the POST.
+        return record;
     }
 
     //turn all rows in a file into a Record collection
