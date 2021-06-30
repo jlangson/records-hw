@@ -91,6 +91,7 @@ public class Record {
                 ", gender='" + gender + '\'' +
                 ", favoriteColor='" + favoriteColor + '\'' +
                 ", dateOfBirth='" + formatDateOfBirth() + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 
