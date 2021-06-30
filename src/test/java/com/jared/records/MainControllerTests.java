@@ -42,7 +42,7 @@ public class MainControllerTests {
         HttpUriRequest request = new HttpGet("http://localhost:8080/records/gender");
         HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
 
-        assertEquals(HttpStatus.SC_OK, httpResponse);
+        assertEquals(HttpStatus.SC_OK, httpResponse.getCode());
 
     }
     @Test
