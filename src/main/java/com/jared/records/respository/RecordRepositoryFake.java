@@ -18,5 +18,12 @@ public class RecordRepositoryFake {
         lastNameSorted = RecordService.sortByLastNameDescending(records);
     }
 
-    
+    //keeps arraylists synchronized
+    //sorting is done on read
+    public void add(Record record){
+        genderSorted.add(record);
+        birthDateSorted.add(record);
+        lastNameSorted.add(record);
+    }
+
 }
