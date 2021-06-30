@@ -36,9 +36,9 @@ public class MainController {
     @GetMapping(value = "/records/gender")
     public ResponseEntity<ArrayList<Record>> getRecordsByGender(){
         //Filler so it compiles. TODO write this
-        ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(HttpStatus.BAD_REQUEST);
+        ArrayList<Record> records = repository.getGenderSorted();
+        ResponseEntity<ArrayList<Record>> response = new ResponseEntity<ArrayList<Record>>(records, HttpStatus.OK);
         return response;
-
     }
 
     @GetMapping(value = "/records/birthdate")
