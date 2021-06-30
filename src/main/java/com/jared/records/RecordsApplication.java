@@ -1,5 +1,6 @@
 package com.jared.records;
 
+import com.jared.records.exception.InvalidRecordException;
 import com.jared.records.model.Record;
 import com.jared.records.service.RecordService;
 import org.springframework.boot.SpringApplication;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class RecordsApplication {
 	public static ArrayList<Record> initialData; //to pass the data to the controller.
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InvalidRecordException {
 		initialData = RecordsConsole.readData(RecordService.paths);
 		SpringApplication.run(RecordsApplication.class, args);
 	}

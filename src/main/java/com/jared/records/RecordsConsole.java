@@ -1,4 +1,5 @@
 package com.jared.records;
+import com.jared.records.exception.InvalidRecordException;
 import com.jared.records.model.Record;
 import com.jared.records.service.RecordService;
 
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 //for running part one of the assignment
 public class RecordsConsole {
 
-    public static ArrayList<Record> readData(String[] filePaths) throws IOException{
+    public static ArrayList<Record> readData(String[] filePaths) throws IOException, InvalidRecordException {
         //to store the inputs from every file before they are merged
         ArrayList<ArrayList<Record>> recordOfRecords = new ArrayList<>();
         ArrayList<Record> initialList = new ArrayList<>(); //where merged records are stored
@@ -27,7 +28,7 @@ public class RecordsConsole {
         return initialList;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InvalidRecordException {
         ArrayList<Record> initialList = readData(RecordService.paths);
 
 

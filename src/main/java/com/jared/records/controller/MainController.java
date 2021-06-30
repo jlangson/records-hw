@@ -3,6 +3,7 @@ package com.jared.records.controller;
 import com.jared.records.RecordsApplication;
 import com.jared.records.model.Record;
 import com.jared.records.respository.RecordRepositoryFake;
+import com.jared.records.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,9 +28,17 @@ public class MainController {
     }
 
     @PostMapping(value = "/records")
-    public ResponseEntity<Void> createRecord(@RequestBody Record record, BindingResult bindingResult){ //do I need BindingResult?
-        //Filler so it compiles. TODO write this
-        ResponseEntity<Void> response = new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Void> createRecord(@RequestBody String string, BindingResult bindingResult){ //do I need BindingResult?
+        ResponseEntity<Void> response;
+
+        try{
+            Record record = RecordService.rowToRecord(string);
+            response = new ResponseEntity<>(HttpStatus.CREATED);
+            System.out.println(record);
+        } catch (Exception e){
+            response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
         return response;
     }
 

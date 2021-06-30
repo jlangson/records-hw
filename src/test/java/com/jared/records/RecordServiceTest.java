@@ -1,5 +1,6 @@
 package com.jared.records;
 import com.jared.records.comparator.GenderSorter;
+import com.jared.records.exception.InvalidRecordException;
 import com.jared.records.model.Record;
 import com.jared.records.service.RecordService;
 
@@ -67,28 +68,28 @@ public class RecordServiceTest {
     //following 4 tests are for rowToRecord
 
     @Test
-    public void testCreateRecordFromCommaRow(){
+    public void testCreateRecordFromCommaRow() throws IOException, InvalidRecordException {
         Record record = RecordService.rowToRecord(commaRows[0]);
         Record answer = new Record("Doyle", "Hector", "female", "blue", "02/08/1936");
         assertEquals(answer, record);
     }
 
     @Test
-    public void testCreateRecordFromPipeRow(){
+    public void testCreateRecordFromPipeRow() throws IOException, InvalidRecordException {
         Record record = RecordService.rowToRecord(pipeRows[0]);
         Record answer = new Record("Peck", "Germaine", "female", "indigo", "06/26/1990");
         assertEquals(answer, record);
     }
 
     @Test
-    public void testCreateRecordFromSpaceRow(){
+    public void testCreateRecordFromSpaceRow() throws IOException, InvalidRecordException {
         Record record = RecordService.rowToRecord(spaceRows[0]);
         Record answer = new Record("Summers", "Lane", "female", "indigo", "07/14/1988");
         assertEquals(answer, record);
     }
 
     @Test
-    public void testCreateRecordFromBadDataShouldFail(){
+    public void testCreateRecordFromBadDataShouldFail() throws IOException, InvalidRecordException {
         Record record = RecordService.rowToRecord("aldjq93487asdjalsdq3784sjda-add091jda-d1d");
         Record answer = new Record();
         assertEquals(answer, record);
@@ -96,7 +97,7 @@ public class RecordServiceTest {
     //End of tests for rowToRecord
 
     @Test
-    public void testReadRecordsFromFile() throws IOException {
+    public void testReadRecordsFromFile() throws IOException, InvalidRecordException {
         ArrayList<Record> records = RecordService.createAllRecordsFromFile(filePaths[0]);
         ArrayList<Record> answers = new ArrayList<>();
         answers.add(RecordService.rowToRecord("Doyle, Hector, female, blue, 02/08/1936"));

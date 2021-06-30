@@ -3,6 +3,7 @@ import com.jared.records.comparator.BirthDateAscendingSorter;
 import com.jared.records.comparator.GenderSorter;
 import com.jared.records.comparator.LastNameAscendingSorter;
 import com.jared.records.comparator.LastNameDescendingSorter;
+import com.jared.records.exception.InvalidRecordException;
 import com.jared.records.model.Record;
 
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class RecordService {
     //turn row into a Record
     //rows will not contain delimiters of other types in the fields.
     //delimiters are "," "|" " "
-    public static Record rowToRecord(String row){
+    public static Record rowToRecord(String row) throws InvalidRecordException {
         Record record = new Record();
 
         if(row.contains(",")){
@@ -50,12 +51,13 @@ public class RecordService {
         } else { //bad row if this happens
             //TODO what happens here? Log it?
             //empty constructor makes a Record with id -1 which is a way to detect bad inputs.
+            throw new InvalidRecordException("invalid record format");
         }
         return record;
     }
 
     //turn all rows in a file into a Record collection
-    public static ArrayList<Record> createAllRecordsFromFile(String filePath) throws IOException {
+    public static ArrayList<Record> createAllRecordsFromFile(String filePath) throws IOException, InvalidRecordException {
         ArrayList<Record> records = new ArrayList<>();
         Path path = Paths.get(filePath);
         String entireFile = new String(Files.readAllBytes(path));
