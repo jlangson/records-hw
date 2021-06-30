@@ -1,7 +1,9 @@
 package com.jared.records.controller;
 
 import com.jared.records.RecordsApplication;
+import com.jared.records.model.BadRequest;
 import com.jared.records.model.Record;
+import com.jared.records.model.RecordWithError;
 import com.jared.records.respository.RecordRepositoryFake;
 import com.jared.records.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,25 +30,27 @@ public class MainController {
     }
 
     @PostMapping(value = "/records")
-    public ResponseEntity<Void> createRecord(@RequestBody String string, BindingResult bindingResult){ //do I need BindingResult?
+    public ResponseEntity<?> createRecord(@RequestBody String request){ //do I need BindingResult?
         //is changed on good data
-        ResponseEntity<Void> response = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        Record record = new Record();
+        BadRequest badRequest = new BadRequest(request); //only sent if making a good record fails
+        ResponseEntity<BadRequest> badResponse = new ResponseEntity<BadRequest>(badRequest, HttpStatus.BAD_REQUEST);
+
         try{
-            record = RecordService.rowToRecord(string);
+           Record record = RecordService.rowToRecord(request);
             if(record.isValid()) {
-                response = new ResponseEntity<>(HttpStatus.CREATED);
+               ResponseEntity<Record> goodResponse = new ResponseEntity<Record>(record,HttpStatus.CREATED);
 
                 //TODO also include the created record in the response
                 repository.add(record);
-                System.out.println(record);
+                System.out.println("Record was added as " + record);
+                return goodResponse;
             }
         } catch (Exception e){
-            //if it fails bad response sent back by default values
-            //TODO make a response with bad content.
+            //badResponse is made by default so there's nothing to do here
+            System.out.println("The bad request is " + badRequest);
         }
 
-        return response;
+        return badResponse;
     }
 
     @GetMapping(value = "/records/gender")
