@@ -39,7 +39,7 @@ public class RecordTest {
     }
 
     @Test
-    public void testEmptyRecordIdThree(){
-        assertEquals(3, emptyRecordOne.getId());
+    public void testEmptyRecordIdIsNegativeOne(){
+        assertEquals(-1, emptyRecordOne.getId());
     }
 }

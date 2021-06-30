@@ -6,6 +6,7 @@ import com.jared.records.comparator.LastNameDescendingSorter;
 import com.jared.records.model.Record;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,17 +21,18 @@ public class RecordService {
             "src/main/resources/data/commas.csv"};
 
     public static Record createRecordFromRowGivenDelimiter(String row, String delimiter){
-        Record record = new Record();
         String[] fields = row.split(delimiter);
         for(int i=0; i < fields.length; i++){
             fields[i] = fields[i].trim();
         }
-        record.setLastName(fields[0]);
-        record.setFirstName(fields[1]);
-        record.setGender(fields[2]);
-        record.setFavoriteColor(fields[3]);
-        record.setDateOfBirth(fields[4]);
-        return record;
+        String lastName = fields[0];
+        String firstName = fields[1];
+        String gender = fields[2];
+        String favoriteColor = fields[3];
+        String dateOfBirth = fields[4];
+
+
+        return new Record(lastName, firstName, gender, favoriteColor, dateOfBirth);
     }
 
     //turn row into a Record
@@ -49,7 +51,7 @@ public class RecordService {
             //TODO what happens here? Log it?
 
         }
-        return record;
+        return record; //if the id is -1 then it was bad data. used in handling the POST.
     }
 
     //turn all rows in a file into a Record collection

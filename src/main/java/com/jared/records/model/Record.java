@@ -8,7 +8,7 @@ public class Record {
     //first record starts at 1. this is increased as new records are made.
     private static int currentIdValue = 1;
     //default values to avoid null pointer errors in .equals()
-    private int id;
+    private int id=-1; //shows bad data was attempted to be entered. As new empty Constructor does not adjust the id.
     private String lastName="";
     private String firstName="";
     private String gender="";
@@ -28,8 +28,6 @@ public class Record {
     }
 
     public Record() {
-        id = currentIdValue;
-        currentIdValue++;
     }
 
     public String getLastName() {
