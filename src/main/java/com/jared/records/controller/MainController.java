@@ -3,13 +3,10 @@ package com.jared.records.controller;
 import com.jared.records.RecordsApplication;
 import com.jared.records.model.BadRequest;
 import com.jared.records.model.Record;
-import com.jared.records.model.RecordWithError;
 import com.jared.records.respository.RecordRepositoryFake;
 import com.jared.records.service.RecordService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,11 +20,6 @@ public class MainController {
 
     RecordRepositoryFake repository = new RecordRepositoryFake(RecordsApplication.initialData);
 
-    //TODO remove this in production
-    @GetMapping(value = "/")
-    public ArrayList<Record> sanityCheckRepositoryInitialized(){
-        return repository.getBirthDateSorted();
-    }
 
     @PostMapping(value = "/records")
     public ResponseEntity<?> createRecord(@RequestBody String request){ //do I need BindingResult?
