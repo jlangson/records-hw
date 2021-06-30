@@ -82,6 +82,14 @@ public class Record {
         return month + "/"  + day + "/" + year;
     }
 
+    //assists with record validation.
+    //invalid records should not be added.
+    public boolean isValid(){
+        //if any of those are true, the record is invalid.
+        //! reverses the truth values
+        return !(id==-1 || lastName.equals("") || firstName.equals("") || favoriteColor.equals("") || gender.equals("") || dateOfBirth.equals(LocalDate.MIN));
+    }
+
 
     @Override
     public String toString() {

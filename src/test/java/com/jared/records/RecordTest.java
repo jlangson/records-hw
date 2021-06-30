@@ -42,4 +42,9 @@ public class RecordTest {
     public void testEmptyRecordIdIsNegativeOne(){
         assertEquals(-1, emptyRecordOne.getId());
     }
+
+    @Test
+    public void testIsValidOnBadRecordExpectFalse(){
+        assertEquals(false, emptyRecordOne.isValid());
+    }
 }
