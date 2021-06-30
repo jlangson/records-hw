@@ -47,4 +47,9 @@ public class RecordTest {
     public void testIsValidOnBadRecordExpectFalse(){
         assertEquals(false, emptyRecordOne.isValid());
     }
+
+    @Test
+    public void testIsValidOnGoodRecordExpectTrue(){
+        assertEquals(true, recordOne.isValid());
+    }
 }
