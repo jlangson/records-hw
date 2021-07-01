@@ -21,7 +21,7 @@ public class RecordsConsole {
         for(int i=0; i < recordOfRecords.size(); i++){
             initialList.addAll(recordOfRecords.get(i));
         }
-        System.out.println(initialList.size()); //expect 300
+        System.out.println("Records read= " + initialList.size()); //expect 300
 
         return initialList;
     }
