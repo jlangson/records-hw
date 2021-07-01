@@ -4,6 +4,7 @@ import com.jared.records.comparator.GenderSorter;
 import com.jared.records.comparator.LastNameAscendingSorter;
 import com.jared.records.comparator.LastNameDescendingSorter;
 import com.jared.records.model.Record;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
+@Service
 public class RecordService {
     //file paths of the three data inputs.
     public static final String paths[] = new String[]{
