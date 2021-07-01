@@ -5,7 +5,7 @@ This project reads files, creates records from them, sorts them a few different 
 Run main method in `RecordsConsole`
 
 # How to run part 2, the REST API
-Run main method in `RecordsApplication`
+Run main method in `RecordsApplication`. Then use a tool of your choice to hit the endpoints. 
 
 # Code Coverage
 Coverage was measured using default configuration of IntelliJ IDEA "Coverage" plugin
