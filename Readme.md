@@ -9,7 +9,7 @@ https://www.loom.com/share/5819e42484f8463ba3723794be7c8a00?sharedAppSource=pers
 Run main method in `RecordsConsole`
 
 # How to run part 2, the REST API
-Run main method in `RecordsApplication`
+Run main method in `RecordsApplication`. Then use a tool of your choice to hit the endpoints. Default server is http://localhost:8080
 
 # Code Coverage
 Coverage was measured using default configuration of IntelliJ IDEA "Coverage" plugin
