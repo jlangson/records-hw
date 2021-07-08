@@ -1,6 +1,10 @@
 # About
 This project reads files, creates records from them, sorts them a few different ways and creates a REST API. It does not use a real database and instead simulates one in memory.
 
+# Video demonstration
+
+https://www.loom.com/share/5819e42484f8463ba3723794be7c8a00?sharedAppSource=personal_library
+
 # How to run part 1, the commandline application
 Run main method in `RecordsConsole`
 
